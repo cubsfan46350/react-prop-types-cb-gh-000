@@ -1,6 +1,7 @@
 // Code Goes Here
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
 export class Order extends React.Component {
   render() {
@@ -20,9 +21,19 @@ export class Order extends React.Component {
   }
 }
 
-Order.defaultProps {
+Order.defaultProps = {
   cone: true,
   size: 'regular',
   scoops: [],
   orderInfo: {}
-}
+};
+
+Order.propTypes = {
+  cone: PropTypes.bool,
+  size: PropTypes.string,
+  scoops: PropTypes.arrayOf(PropTypes.string).isRequired,
+  orderInfo: PropTypes.shape({
+    customerName: PropTypes.string.isRequired,
+    orderAt: PropTypes.number.isRequired
+  }).isRequired
+};
