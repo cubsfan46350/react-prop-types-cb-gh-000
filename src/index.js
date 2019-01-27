@@ -20,4 +20,9 @@ export class Order extends React.Component {
   }
 }
 
-Order.
+Order.defaultProps {
+  cone: true,
+  size: 'regular',
+  scoops: [],
+  orderInfo: {}
+}
